@@ -1,4 +1,4 @@
-from background_remover import BackgroundRemover
+from BgRemover.bg_remover import BgdRemover
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
@@ -10,7 +10,7 @@ import requests
 model_path = "/content/drive/My Drive"
 restore_model = "isnet.pth"
 
-background_remover = BackgroundRemover(model_path, restore_model)
+background_remover =BgdRemover(model_path, restore_model)
 
 image_url = "https://i5.walmartimages.com/asr/43995148-22bf-4836-b6d3-e8f64a73be54.5398297e6f59fc510e0111bc6ff3a02a.jpeg"
 

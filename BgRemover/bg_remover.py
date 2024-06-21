@@ -25,7 +25,7 @@ class GOSNormalize(object):
 
 
 
-class BackgroundRemover:
+class BgRemover:
     def __init__(self, model_path, restore_model, device='cuda' if torch.cuda.is_available() else 'cpu'):
         self.device = device
         self.hypar = self._set_parameters(model_path, restore_model)
