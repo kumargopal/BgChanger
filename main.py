@@ -7,7 +7,7 @@ import requests
 
 
 # Example usage
-model_path = "/content/drive/My Drive"
+model_path = "/content/gdrive/My Drive"
 restore_model = "isnet.pth"
 
 background_remover =BgdRemover(model_path, restore_model)

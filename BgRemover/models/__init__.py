@@ -1,1 +1,1 @@
-from IsNet.models.isnet import ISNetGTEncoder, ISNetDIS
+from BgRemover.models.isnet import ISNetGTEncoder, ISNetDIS

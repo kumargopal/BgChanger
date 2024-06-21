@@ -6,8 +6,8 @@ from torchvision import transforms
 import torch.nn.functional as F
 import requests
 from io import BytesIO
-from IsNet.data_loader_cache import normalize, im_reader, im_preprocess
-from IsNet.models import *
+from BgRemover.data_loader_cache import normalize, im_reader, im_preprocess
+from BgRemover.models import *
 
 
 
