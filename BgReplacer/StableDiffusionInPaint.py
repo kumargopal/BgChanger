@@ -33,7 +33,7 @@ class StableDiffusionInPaint:
             grid.paste(img, box=(i % cols * w, i // cols * h))
         return grid
 
-    def inpaint(self, image: Union[str, PIL.Image.Image], mask: Union[str, PIL.Image.Image], prompt: str, guidance_scale: float = 7.5, num_samples: int = 3, seed: int = 0) -> PIL.Image.Image:
+    def inpaint(self, image: Union[str, PIL.Image.Image], mask: Union[str, PIL.Image.Image], prompt: str, guidance_scale: float = 7.5, num_samples: int = 3, seed: int = 0) -> List[PIL.Image.Image]:
         if isinstance(image, str):
             image = self.download_image(image).resize((512, 512))
         else:
@@ -56,4 +56,4 @@ class StableDiffusionInPaint:
         ).images
 
         images.insert(0, image)
-        return self.image_grid(images, 1, num_samples + 1)
+        return images
