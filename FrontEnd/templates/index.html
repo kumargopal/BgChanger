@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Image Inpainting</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 </head>
 <body>
     <h1>Upload an Image and Enter a Prompt</h1>
@@ -14,6 +16,5 @@
         <button type="submit">Generate</button>
     </form>
     <div id="result-container" style="display: flex; flex-wrap: wrap;"></div>
-    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>
