@@ -23,6 +23,6 @@ Examples of background removal and replacement:
 ## How to Use
 
 ```bash
-git clone <repository_url>
+git clone https://github.com/kumargopal/BgChanger.git
 cd BgChanger
 open BgChanger.ipynb in Google Colab
