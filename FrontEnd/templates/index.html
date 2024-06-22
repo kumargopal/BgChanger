@@ -2,19 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Image Inpainting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Background Changer</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <h1>Upload an Image and Enter a Prompt</h1>
-    <form id="inpainting-form" action="/process" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept="image/*" required><br><br>
-        <label for="prompt">Prompt:</label>
-        <input type="text" id="prompt" name="prompt" required><br><br>
-        <button type="submit">Generate</button>
-    </form>
-    <div id="result-container" style="display: flex; flex-wrap: wrap;"></div>
+    <div class="container">
+        <h1>Transform Your Image with AI Backgrounds</h1>
+        <div id="image-container" style="display: none;">
+            <h3>Original Image:</h3>
+            <img id="uploaded-image" src="" alt="Uploaded Image">
+        </div>
+        <form id="inpainting-form" action="/process" method="post" enctype="multipart/form-data">
+            <label for="file-upload" class="custom-file-upload">
+                <i class="fas fa-cloud-upload-alt"></i> Upload Image
+            </label>
+            <input id="file-upload" type="file" name="file" accept="image/*" required><br><br>
+            <label for="prompt">Prompt:</label><br>
+            <textarea id="prompt" name="prompt" rows="4" cols="50" required></textarea><br><br>
+            <button id="generate-button" type="submit">Generate</button>
+            <div id="loading-spinner" class="loading-spinner"></div>
+        </form>
+        <div id="result-container" class="result-container"></div>
+    </div>
 </body>
 </html>
