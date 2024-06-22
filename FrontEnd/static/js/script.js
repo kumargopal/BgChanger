@@ -9,16 +9,17 @@ document.getElementById('inpainting-form').addEventListener('submit', async func
     });
 
     if (response.ok) {
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'result_images.zip';
-        document.getElementById('download-link').innerHTML = "Download result: ";
-        document.getElementById('download-link').appendChild(a);
-        a.innerText = 'Download result_images.zip';
-        a.click();
-        window.URL.revokeObjectURL(url);
+        const resultImages = await response.json();
+        const resultContainer = document.getElementById('result-container');
+        resultContainer.innerHTML = '';
+
+        resultImages.forEach(imgBase64 => {
+            const imgElement = document.createElement('img');
+            imgElement.src = imgBase64;
+            imgElement.style.width = '300px';  // Adjust size as needed
+            imgElement.style.margin = '10px';
+            resultContainer.appendChild(imgElement);
+        });
     } else {
         alert('Error generating images');
     }
