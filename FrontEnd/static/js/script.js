@@ -7,17 +7,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultContainer = document.getElementById('result-container');
 
     imageContainer.style.display = 'block';
-    uploadedImage.src = "https://ibb.co/X2Qv6xd"
+    uploadedImage.src = "https://i.ibb.co/98DCBHf/test-input.jpg"
     
     // Display default images
     const defaultImages = [
-        "https://ibb.co/LZQnWjF",
-        "https://ibb.co/LnjDV7p",
-        "https://ibb.co/fpXDDVz",
-        "https://ibb.co/Zg4Cmmh"
+        "https://i.ibb.co/tJZ8tjG/test-result1.png",
+        "https://i.ibb.co/myZ788H/test-result2.png",
+        "https://i.ibb.co/T8wWWDx/test-result3.png",
+        "https://i.ibb.co/5BpXbHc/test-result4.png"
     ];
-
-    
 
     defaultImages.forEach(imgBase64 => {
         const imgElement = document.createElement('img');
