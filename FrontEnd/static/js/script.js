@@ -33,27 +33,31 @@ document.addEventListener('DOMContentLoaded', function() {
         loadingSpinner.style.display = 'block';
         generateButton.disabled = true;
 
-        const response = await fetch('/process', {
-            method: 'POST',
-            body: formData,
-        });
-
-        loadingSpinner.style.display = 'none';
-        generateButton.disabled = false;
-
-        if (response.ok) {
-            const resultImages = await response.json();
-            resultContainer.innerHTML = '';  // Clear previous result images
-
-            resultImages.forEach(imgBase64 => {
-                const imgElement = document.createElement('img');
-                imgElement.src = imgBase64;
-                imgElement.style.width = '300px';  // Adjust size as needed
-                imgElement.style.margin = '10px';
-                resultContainer.appendChild(imgElement);
+        try {
+            const response = await fetch('/process', {
+                method: 'POST',
+                body: formData,
             });
-        } else {
-            alert('Error generating images');
+
+            if (response.ok) {
+                const resultImages = await response.json();
+                resultContainer.innerHTML = '';  // Clear previous result images
+
+                resultImages.forEach(imgBase64 => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = imgBase64;
+                    imgElement.style.width = '300px';  // Adjust size as needed
+                    imgElement.style.margin = '10px';
+                    resultContainer.appendChild(imgElement);
+                });
+            } else {
+                alert('Error generating images');
+            }
+        } catch (error) {
+            alert('An error occurred: ' + error.message);
+        } finally {
+            loadingSpinner.style.display = 'none';
+            generateButton.disabled = false;
         }
     });
 
